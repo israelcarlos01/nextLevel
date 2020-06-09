@@ -1,0 +1,12 @@
+/* 
+  ***observações***
+    
+    -box model
+      
+      display: block; => Container que ocupa o espaço todo na horizontal,
+      fazendo com que o elementos fiquem em baixo dele.
+      
+      display: inline; => faz com que o container fique do tamanho do conteúdo,
+      permitindo que seja colocado elementos um ao lado do otro.
+
+*/
