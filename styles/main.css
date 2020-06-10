@@ -1,12 +1,197 @@
+/*Variáveis globais*/
+
+/*
+Referencia a raiz do nosso projeto, dentro possuem variáveis a serem usadas
+para evitar repetição de código
+*/
+:root {
+  --title-color: #322153;
+  --primary-color: #34cb79;
+}
+/*Referencia todos os seletores*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "roboto", sans-serif;
+}
+
+body {
+  background: #f0f0f5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: var(--title-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "ubuntu", sans-serif;
+  color: var(--title-color);
+}
+
 /* 
   ***observações***
     
     -box model
       
-      display: block; => Container que ocupa o espaço todo na horizontal,
+      display: block; => Container que ocupa o espaço todo na horizontal
+      independente do conteúdo do container,
       fazendo com que o elementos fiquem em baixo dele.
-      
-      display: inline; => faz com que o container fique do tamanho do conteúdo,
-      permitindo que seja colocado elementos um ao lado do otro.
 
+      display: inline; => faz com que o container fique um ao lado do otro.
+
+      display: flex; => adapta  o container conforme o conteúdo do mesmo.
+
+      align-items: center; => alinha os itens ao centro na vertical. 
+
+      justify-content: space-between; => vai justificar o conteúdo de dentro,
+      colocando um espaço entre os elementos.
+
+      max-width: 1100px; => quado chega nesse px ele para de se mover.
+
+      margin: 0 auto; o primeiro valor se diz a margem do top e bottom,
+      o segundo da left e right, se tivesse  4 valores ex: margin: 0 10 26 0;,
+      diz respeito a margem do top, right, bottom e por ultimo left na 
+      respectiva ordem. 
+
+      height: 100vh; => vh unidade de medida dinâmica ocupa toda a parte branca
+      na altura da page. 
+      
+      width: 100vw; => vh unidade de medida dinâmica ocupa toda a parte branca
+      na largura da page.
+
+      font-weight: 700; => peso da fonte;
+
+      text-decoration: none; => tira o sublinhado do link.
+
+      line-height: 38px; => altura da linha do texto;
+
+      position: absolute; => fica em cima dos demais elementos, em uma
+      posição absoluta, como o próprio nome já diz.
 */
+
+#page-home {
+  height: 100vh;
+  background: url("../assets/home-background.svg") no-repeat;
+  background-position: 35vw 15vh;
+}
+
+#page-home .content {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#page-home header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 48px;
+}
+
+#page-home header a {
+  display: flex;
+  color: var(--title-color);
+  font-weight: 700;
+}
+
+#page-home header a span {
+  margin-right: 16px;
+  background-image: url("../assets/log-in.svg");
+  display: flex;
+  width: 20px;
+  height: 20px;
+}
+
+#page-home main {
+  max-width: 560px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#page-home main h1 {
+  font-size: 54px;
+}
+
+#page-home main p {
+  font-size: 24px;
+  line-height: 38px;
+  margin-top: 24px;
+}
+
+#page-home main a {
+  width: 100%;
+  max-width: 360px;
+  background-color: var(--primary-color);
+  height: 72px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  transition: 400ms;
+}
+
+#page-home main a:hover {
+  background-color: #2fb86e;
+}
+
+#page-home main a span {
+  width: 72px;
+  height: 72px;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*adicionando um pseudo elemento, elemento que não exite no HTML*/
+#page-home main a span::after {
+  content: "";
+  background-image: url("../assets/search.svg");
+  height: 20px;
+  width: 20px;
+}
+
+#page-home main a strong {
+  color: white;
+  flex: 1;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  #page-home {
+    background-position: 70vh;
+  }
+
+  #page-home .content {
+    align-items: center;
+    text-align: center;
+  }
+
+  #page-home header a {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #page-home main {
+    align-items: center;
+  }
+}
